@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #d2d2d2;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.calculator {
+    width: 200px;
+    height: 32vh;
+    background-color: #ffff;
+    border-radius: 10px;
+}
+
+#display{
+    padding: 10px;
+    background-color: #333;
+}
+
+#display input{
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color:#ffff;
+}
+
+.main{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    padding: 10px;
+}
+
+.numbers{
+    background: rgb(219, 210, 210);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.numbers:hover{
+    background-color: whitesmoke;
+    
+}
+
+.signs{
+    background-color: rgb(242, 230, 136);
+    cursor: pointer;
+    border: none;
+    font-size: 1.3rem;
+    border-radius: 4px;
+}
+.signs:hover{
+    background-color:lemonchiffon;
+}
+
+.dot{
+    background: rgb(219, 210, 210);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.dot:hover{
+    background-color: #807373;
+}
+
+.clear{
+    background: rgb(149, 46, 46);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.clear:hover{
+    /* font-size: 1.5rem; */
+    background-color: rgb(218, 151, 151);
+}
+
+.equal{
+    background: rgb(86, 152, 66);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    grid-column: span 4;
+}
+S
+.equal:hover{
+    background-color: rgb(125, 145, 125);
+    font-size: 1.7em;
+}
