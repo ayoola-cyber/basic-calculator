@@ -1,11 +1,9 @@
 const viewed = document.getElementById("view");
-console.log(viewed);
-
 const numberButton = document.querySelectorAll(".numbers");
-console.log(numberButton);
 
 const clearButton = document.getElementById("cleared");
 const equalButton = document.getElementById("equaled");
+console.log(equalButton)
 
 const updateView = (value) => {
     viewed.value = value;
@@ -14,24 +12,40 @@ const updateView = (value) => {
 let currentInput = "";
 let equation = "";
 
-numberButton.forEach(button => {
-button.addEventListener("click", () => {
-    const value = button.dataset.value;
-    console.log(value)
-    if(value){
-        currentInput += value;
-        equation += value;
-        updateView(currentInput);
+// Handle button clicks
+numberButton.forEach((button) => {
+    button.addEventListener("click", () => {
+        const value = button.dataset.value;
+
+        if (value) {
+            // Reset the display if a new calculation starts
+            if (viewed.value === "0" && !isNaN(value)) {
+                currentInput = value;
+                equation = value;
+            } else {
+                currentInput += value;
+                equation += value === "x" ? "*" : value; // Replace "x" with "*"
+            }
+            updateView(currentInput);
+        }
+    });
+});
+
+
+
+// Evaluate the equation on "=" button click
+equalButton.addEventListener("click", () => {
+    try {
+        const result = Function(`'use strict'; return (${equation})`)();
+        currentInput = `${result}`;
+        equation = `${result}`;
+        updateView(result);
+    } catch (error) {
+        updateView("Error");
+        currentInput = "";
+        equation = "";
     }
 });
-});
-
-equalButton.addEventListener("click", () => {
-    const result = eval(equation);
-    updateView(result)
-})
-
-
 
 
 clearButton.addEventListener("click", ()  => {
